@@ -1,4 +1,4 @@
-namespace Papo.Server
+namespace Papu.Server
 {
     public class WeatherForecast
     {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Papo.Server.Controllers
+namespace Papu.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]

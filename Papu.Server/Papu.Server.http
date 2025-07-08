@@ -1,0 +1,6 @@
+@Papu.Server_HostAddress = http://localhost:5208
+
+GET {{Papu.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
