@@ -1,6 +1,6 @@
-var builder = WebApplication.CreateBuilder(args);
+using Papu.Server.Data;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -8,6 +8,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+string strUrl = Environment.GetEnvironmentVariable("SUPABASE_PAPO_URL");
+string strKey = Environment.GetEnvironmentVariable("SUPABASE_PAPO_KEY");
+
+await ClientDB.Instance.InitializeAsync(strUrl, strKey);
+
+builder.Services.AddSingleton(ClientDB.Instance.Client);
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
